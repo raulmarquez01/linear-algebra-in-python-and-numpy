@@ -18,7 +18,14 @@ def sum_vectors(v1, v2, mode="pure"):
     - A vector with the element-wise sum.
     """
  
-    pass  # Remove this line when implemented
+    if len(v1) != len(v2):
+        raise ValueError("Vectors must have the same length")
+    if mode == "pure":
+        return [a + b for a, b in zip(v1, v2)]
+    elif mode == "numpy":
+        return np.array(v1) + np.array(v2)
+    else:
+        return f"Invalid mode: {mode}"
 
 def subtract_vectors(v1, v2, mode="pure"):
     """
@@ -33,7 +40,14 @@ def subtract_vectors(v1, v2, mode="pure"):
     - A vector with the element-wise subtraction.
     """
 
-    pass  # Remove this line when implemented
+    if len(v1) != len(v2):
+        raise ValueError("Vectors must have the same length")
+    if mode == "pure":
+        return [a - b for a, b in zip(v1, v2)]
+    elif mode == "numpy":
+        return np.array(v1) - np.array(v2)
+    else:
+        return f"Invalid mode: {mode}"
 
 
 sum_result_pure = sum_vectors(vector1, vector2, "pure")

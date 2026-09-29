@@ -13,7 +13,9 @@ def create_matrix(n, m, mode="pure"):
     Returns:
     - A matrix in the specified format.
     """
-    pass # Remove this line when implemented
+    if mode == "numpy":
+        return np.random.rand(n, m)
+    return [[random.random() for _ in range(m)] for _ in range(n)]
 
 # Test the function with the following values:
 matrix1 = create_matrix(3, 3, "pure")

@@ -20,7 +20,17 @@ def dot_product(v1, v2, mode="pure"):
     - The dot product as a scalar value.
     """
 
-    pass  # Remove this line when implemented
+    if len(v1) != len(v2):
+        return "Error: Vectors must have the same length"
+    if mode == "pure":
+        result = 0
+        for i in range(len(v1)):
+            result += v1[i] * v2[i]
+        return result
+    elif mode == "numpy":
+        return np.dot(np.array(v1), np.array(v2))
+    else:
+        return f"Invalid mode: {mode}"
 
 def matrix_product(A, B, mode="pure"):
     """
@@ -34,7 +44,19 @@ def matrix_product(A, B, mode="pure"):
     Returns:
     - A matrix with the result of A * B.
     """
-    pass  # Remove this line when implemented
+    if len(A[0]) != len(B):
+        return "Error: Incompatible matrix dimensions"
+    if mode == "pure":
+        result = [[0 for _ in range(len(B[0]))] for _ in range(len(A))]
+        for i in range(len(A)):
+            for j in range(len(B[0])):
+                for k in range(len(B)):
+                    result[i][j] += A[i][k] * B[k][j]
+        return result
+    elif mode == "numpy":
+        return np.dot(np.array(A), np.array(B))
+    else:
+        return f"Invalid mode: {mode}"
 
 
 dot_result_pure = dot_product(vector1, vector2, "pure")

@@ -11,8 +11,10 @@ def create_vector(lst, mode="pure"):
     Returns:
     - A vector in the specified format.
     """
-    pass # Remove this line when implemented
-    
+    if mode == "numpy":
+        return np.array(lst)
+    return list(lst)
+
 
 # Test the function with the following values:
 vector1 = create_vector([1, 2, 3], "pure")
